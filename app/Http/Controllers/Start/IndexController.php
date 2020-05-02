@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Start;
 
+use App\Group;
 use App\Http\Controllers\SuperController;
 
 class IndexController extends SuperController
@@ -15,11 +16,17 @@ class IndexController extends SuperController
 
     public function index()
     {
-        $inputArray = [1, 4, 7, 8, 2, 5];
-        $resultArray = $this->bubbleSort($inputArray);
+        // $inputArray = [1, 4, 7, 8, 2, 5];
+        // $resultArray = $this->bubbleSort($inputArray);
 
-        // $this->content = view('welcome')->render();
-        // return $this->renderOutput()
+        $groups = Group::all();
+
+        foreach ($groups as $group) {
+            $this->propsData['groups'][] = $group->name;
+        }
+
+        $this->content = view('welcome', ['propsData' => $this->propsData])->render();
+        return $this->renderOutput();
 
         // $array = array(
         //     "text" => '```php\nfunction getData(int $parameter) {\n}\n```',

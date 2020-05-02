@@ -15,26 +15,27 @@
             name="_token"
             :value="csrf"
           >
-          
-          <div
-            class="form-group"
-          >
-          <label
+          <div class="form-group">
+            <label
               class="text-success"
               for="groupSelect"
-          >Выбрать группу</label>
-          <select class="form-control" id="groupSelect">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
+            >Выбрать группу</label>
+
+            <select
+              id="groupSelect"
+              class="form-control"
+            >
+              <option
+                v-for="group in groups"
+                :key="group.id"
+                :value="group.id"
+              >
+                {{ group.name }}
+              </option>s
+            </select>
           </div>
 
-          <div
-            class="form-group"
-          >
+          <div class="form-group">
             <label
               class="text-success"
               for="shortLink"
@@ -50,9 +51,7 @@
           </div>
 
           <div class="form-group">
-            <label
-              for="urlInputTextarea"
-            >Код алгоритма</label>
+            <label for="urlInputTextarea">Код алгоритма</label>
             <textarea
               id="codeTextArea"
               class="form-control"
@@ -61,9 +60,7 @@
               required
             />
 
-            <small
-              class="form-text text-danger"
-            >Ошибка</small>
+            <small class="form-text text-danger">Ошибка</small>
           </div>
 
           <button
@@ -79,27 +76,25 @@
 </template>
 
 <script>
-
 export default {
-    // props: {
-    //     data: {
-    //         type: Object,
-    //         required: true,
-    //     },
-    //     content: {
-    //         type: Object,
-    //         required: true
-    //     },
-    // },
-    data() {
-        return {
-            csrf: document
-                .querySelector('meta[name="csrf-token"]')
-                .getAttribute('content'),
-        };
+  props: {
+    groups: {
+      type: Array,
+      default: () => [],
     },
-    computed: {
-    },
-    mounted() {},
+  },
+  data() {
+    return {
+      csrf: document
+        .querySelector('meta[name="csrf-token"]')
+        .getAttribute('content'),
+    };
+  },
+  computed: {},
+  mounted() {
+    this.groups.forEach(element => {
+      console.log(element);
+    });
+  },
 };
 </script>

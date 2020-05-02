@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Group;
 use App\Http\Controllers\SuperController;
 
 class IndexController extends SuperController
@@ -15,7 +16,17 @@ class IndexController extends SuperController
 
     public function index()
     {
-        $this->content = view('admin')->render();
+        $groups = Group::all();
+
+        foreach ($groups as $group) {
+            $this->propsData['groups'][] =
+                [
+                'id' => $group->id,
+                'name' => $group->name,
+            ];
+        }
+
+        $this->content = view('admin', ['propsData' => $this->propsData])->render();
         return $this->renderOutput();
     }
 }
