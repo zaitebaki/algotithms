@@ -8,6 +8,12 @@ Vue.component(
       .default
   );
 
+  Vue.component(
+    'admin-component',
+    require('./components/admin/_AdminComponent.vue')
+      .default
+  );
+
 const app = new Vue({
   el: '#app',
 });

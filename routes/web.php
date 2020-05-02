@@ -14,3 +14,4 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::get('/', 'Start\IndexController@index')->name('startPage');
+Route::get('/admin-ft17', 'Admin\IndexController@index')->name('adminPage');
