@@ -4,18 +4,18 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Group extends Model
+class Algorithm extends Model
 {
-    protected $table = 'group';
+    protected $table = 'algorithm';
     protected $primaryKey = 'id';
     public $timestamps = false;
 
     protected $fillable = [
-        'name',
+        'name', 'code',
     ];
 
-    public function algorithms()
+    public function group()
     {
-        return $this->hasMany('App\Algorithm');
+        return $this->belongsTo('App\Group');
     }
 }

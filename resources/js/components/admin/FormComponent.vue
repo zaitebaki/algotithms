@@ -9,36 +9,48 @@
         <form
           id="editForm"
           method="post"
+          :action="propsData.addAlgorithmRoute"
         >
           <input
             type="hidden"
             name="_token"
             :value="csrf"
           >
+          
+          <div
+            v-if="propsData.status"
+            class="form-group"
+          >
+            <small
+              class="form-text text-success"
+            >{{ propsData.status }}</small>
+          </div>
+
           <div class="form-group">
             <label
-              class="text-success"
+              class="text-primary"
               for="groupSelect"
             >Выбрать группу</label>
 
             <select
               id="groupSelect"
               class="form-control"
+              name="groupId"
             >
               <option
-                v-for="group in groups"
+                v-for="group in propsData.groups"
                 :key="group.id"
                 :value="group.id"
               >
                 {{ group.name }}
-              </option>s
+              </option>
             </select>
           </div>
 
           <div class="form-group">
             <label
-              class="text-success"
-              for="shortLink"
+              class="text-primary"
+              for="nameAlgorithm"
             >
               Название алгоритма</label>
             <input
@@ -51,16 +63,25 @@
           </div>
 
           <div class="form-group">
-            <label for="urlInputTextarea">Код алгоритма</label>
+            <label
+              for="codeTextArea"
+              class="text-primary"
+            >Код алгоритма</label>
             <textarea
               id="codeTextArea"
-              class="form-control"
-              name="userUrl"
-              rows="10"
-              required
+              class="text-monospace form-control"
+              name="codeTextArea"
+              rows="15"
             />
-
-            <small class="form-text text-danger">Ошибка</small>
+            <small
+              v-for="(error, index) in propsData.errors"
+              :key="index"
+              class="form-text text-danger"
+            >{{ error }}</small>
+            <small
+              v-if="propsData.status"
+              class="form-text text-success"
+            >{{ propsData.status }}</small>
           </div>
 
           <button
@@ -78,8 +99,8 @@
 <script>
 export default {
   props: {
-    groups: {
-      type: Array,
+    propsData: {
+      type: Object,
       default: () => [],
     },
   },
@@ -91,10 +112,7 @@ export default {
     };
   },
   computed: {},
-  mounted() {
-    this.groups.forEach(element => {
-      console.log(element);
-    });
+  mounted() { console.log(this.propsData.errors);
   },
 };
 </script>

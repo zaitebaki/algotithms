@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <form-component :groups="propsData.groups" />
+    <form-component :props-data="propsData" />
   </div>
 </template>
 
