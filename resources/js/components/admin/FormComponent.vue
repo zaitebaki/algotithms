@@ -7,7 +7,7 @@
         </h1>
         <hr>
         <form
-          id="editForm"
+          id="addAlgorithmForm"
           method="post"
           :action="propsData.addAlgorithmRoute"
         >
@@ -39,8 +39,23 @@
             <label
               class="text-primary"
               for="groupSelect"
-            >Выбрать группу</label>
-
+            >Выбрать группу </label>
+            <a href="/add-group">
+              <svg
+                class="bi bi-plus-circle-fill"
+                width="1.3em"
+                height="1.3em"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M16 8A8 8 0 110 8a8 8 0 0116 0zM8.5 4a.5.5 0 00-1 0v3.5H4a.5.5 0 000 1h3.5V12a.5.5 0 001 0V8.5H12a.5.5 0 000-1H8.5V4z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </a>
             <select
               id="groupSelect"
               class="form-control"
@@ -61,6 +76,22 @@
               class="text-primary"
               for="groupSelect"
             >Выбрать язык</label>
+            <a href="/add-language">
+              <svg
+                class="bi bi-plus-circle-fill"
+                width="1.3em"
+                height="1.3em"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M16 8A8 8 0 110 8a8 8 0 0116 0zM8.5 4a.5.5 0 00-1 0v3.5H4a.5.5 0 000 1h3.5V12a.5.5 0 001 0V8.5H12a.5.5 0 000-1H8.5V4z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </a>
 
             <select
               id="languageSelect"

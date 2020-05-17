@@ -22,7 +22,8 @@ class IndexController extends SuperController
     }
 
     /**
-     *
+     * Отправить страницу админки
+     * Обработать GET-запрос /admin-ft17
      */
     public function index()
     {
@@ -47,7 +48,6 @@ class IndexController extends SuperController
             ];
         }
 
-        $this->propsData['addGroupRoute'] = route('addGroup');
         $this->propsData['addAlgorithmRoute'] = route('addAlgorithm');
 
         if (session()->has('errors')) {
@@ -64,13 +64,9 @@ class IndexController extends SuperController
         return $this->renderOutput();
     }
 
-    public function addGroup(Request $request)
-    {
-        return redirect()->route('adminPage');
-    }
-
     /**
      * Добавить новый алгоритм
+     * Обработать POST-запрос /add-algorithm
      * @param Request $request
      *
      * @return int
