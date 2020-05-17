@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <title>Алгоритмы</title>
+    <title>{!! $title !!}</title>
 </head>
 <body>
     <div id="app">

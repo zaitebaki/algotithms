@@ -49,6 +49,8 @@ class IndexController extends SuperController
         }
 
         $this->propsData['addAlgorithmRoute'] = route('addAlgorithm');
+        $this->propsData['addGroupRoute'] = route('groupPageIndex');
+        $this->propsData['addLanguageRoute'] = route('languagePageIndex');
 
         if (session()->has('errors')) {
             $this->propsData['errors'] = session('errors');

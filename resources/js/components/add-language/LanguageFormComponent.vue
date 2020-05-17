@@ -3,13 +3,13 @@
     <div class="row justify-content-md-center">
       <div class="col-md-8 py-5">
         <h1 class="font-weight-bold">
-          Добавить группу
+          Добавить язык
         </h1>
         <hr>
         <form
-          id="addGroupForm"
+          id="addLanguageForm"
           method="post"
-          :action="propsData.addGroupRoute"
+          :action="propsData.addLanguageRoute"
         >
           <input
             type="hidden"
@@ -37,14 +37,29 @@
           <div class="form-group">
             <label
               class="text-primary"
-              for="nameGroup"
+              for="nameLanguage"
             >
-              Имя группы</label>
+              Название языка</label>
             <input
-              id="nameGroup"
+              id="nameLanguage"
               type="text"
               class="form-control"
-              name="nameGroup"
+              name="nameLanguage"
+              value=""
+            >
+          </div>
+
+          <div class="form-group">
+            <label
+              class="text-primary"
+              for="nameLanguage"
+            >
+              Идентификатор в Github</label>
+            <input
+              id="keyword"
+              type="text"
+              class="form-control"
+              name="keyword"
               value=""
             >
           </div>

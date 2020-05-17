@@ -40,7 +40,7 @@
               class="text-primary"
               for="groupSelect"
             >Выбрать группу </label>
-            <a href="/add-group">
+            <a :href="propsData.addGroupRoute">
               <svg
                 class="bi bi-plus-circle-fill"
                 width="1.3em"
@@ -76,7 +76,7 @@
               class="text-primary"
               for="groupSelect"
             >Выбрать язык</label>
-            <a href="/add-language">
+            <a :href="propsData.addLanguageRoute">
               <svg
                 class="bi bi-plus-circle-fill"
                 width="1.3em"
