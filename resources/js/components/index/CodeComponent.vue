@@ -1,20 +1,19 @@
 <template>
-  <div>
-    Мощный код
-  </div>
+  <article class="markdown-body">
+    <span v-html="algorithm.code"></span>
+  </article>
 </template>
 
 <script>
-// export default {
-//   props: {
-//     propsData: {
-//       type: Object,
-//       required: true,
-//     },
-//   },
-//   mounted() {
-//     console.log(this.propsData);
-//   },
-// };
+export default {
+  props: {
+    algorithm: {
+      type: Object,
+      require: false
+    },
+  },
+  mounted() {
+  },
+};
 </script>
 <style scoped></style>

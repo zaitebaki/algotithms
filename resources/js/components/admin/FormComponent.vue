@@ -112,7 +112,7 @@ export default {
     };
   },
   computed: {},
-  mounted() { console.log(this.propsData.errors);
+  mounted() {
   },
 };
 </script>

@@ -4,10 +4,13 @@
       <div class="col-sm-3">
         <algorithms-list-component
           :groups="propsData.groups"
+          @select:algorithm="updateAlgorithm($event)"
         />
       </div>
       <div class="col-sm=10">
-          <code-component />
+        <code-component
+          :algorithm="getCurrentAlgorithm"
+        />
       </div>
     </div>
   </div>
@@ -28,9 +31,26 @@ export default {
       required: true,
     },
   },
-  mounted() {
-    console.log(this.propsData);
+  data() {
+    return {
+      currentGroup: 0,
+      currentAlgorithm: 0
+    };
   },
+  computed: {
+    getCurrentAlgorithm() {
+      return this.propsData.groups[this.currentGroup].algorithms[this.currentAlgorithm];
+    }
+  },
+  methods: {
+    updateAlgorithm($event) {
+
+      console.log($event);
+      this.currentGroup = $event[0];
+      this.currentAlgorithm = $event[1];
+    }
+  },
+  mounted() {console.log(this.propsData);}
 };
 </script>
 <style scoped></style>

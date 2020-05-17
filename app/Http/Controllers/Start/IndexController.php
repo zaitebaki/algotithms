@@ -42,24 +42,4 @@ class IndexController extends SuperController
         $this->content = view('welcome', ['propsData' => $this->propsData])->render();
         return $this->renderOutput();
     }
-
-    private function bubbleSort($array)
-    {
-        $countArray = count($array);
-
-        $flag = true;
-        while ($flag) {
-            $flag = false;
-            for ($i = 0; $i < $countArray - 1; $i++) {
-                if ($array[$i] > $array[$i + 1]) {
-                    $dump = $array[$i];
-                    $array[$i] = $array[$i + 1];
-                    $array[$i + 1] = $dump;
-                    $flag = true;
-                }
-            }
-        }
-
-        return $array;
-    }
 }

@@ -42,7 +42,7 @@ class GithubApi
 
         $markdownString = curl_exec($ch);
 
-        // dd($markdownString);
+        dd($markdownString);
 
         // проверить наличие ошибки curl
         if (curl_errno($ch)) {
