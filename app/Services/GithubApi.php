@@ -11,19 +11,20 @@ class GithubApi
     const USER_AGENT = 'zaitebaki';
     const MODE = 'gfm';
     const CONTEXT = 'github/zaitebaki';
-    const LANGUAGE = 'PHP';
 
     /**
      * Получить markdown-разметку кода
      * @param string $text
+     * @param string $language
      *
      * @return ?string
      */
-    public static function getMarkdown(string $text): ?string
+    public static function getMarkdown(string $text, string $language): ?string
     {
         $error = null;
+
         $postArray = array(
-            "text" => '```' . self::LANGUAGE . '\n' . $text . '\n```',
+            "text" => '```' . $language . '\n' . $text . '\n```',
             "mode" => self::MODE,
             "context" => self::CONTEXT,
         );
@@ -41,8 +42,6 @@ class GithubApi
         curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
 
         $markdownString = curl_exec($ch);
-
-        dd($markdownString);
 
         // проверить наличие ошибки curl
         if (curl_errno($ch)) {

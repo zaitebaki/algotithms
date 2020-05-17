@@ -2006,6 +2006,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     propsData: {
@@ -2707,13 +2728,29 @@ var render = function() {
               domProps: { value: _vm.csrf }
             }),
             _vm._v(" "),
-            _vm.propsData.status
-              ? _c("div", { staticClass: "form-group" }, [
-                  _c("small", { staticClass: "form-text text-success" }, [
-                    _vm._v(_vm._s(_vm.propsData.status))
-                  ])
-                ])
-              : _vm._e(),
+            _c("div", { staticClass: "form-group" }, [
+              _vm.propsData.errors
+                ? _c(
+                    "div",
+                    _vm._l(_vm.propsData.errors, function(error, index) {
+                      return _c(
+                        "small",
+                        { key: index, staticClass: "form-text text-danger" },
+                        [_vm._v(_vm._s(error))]
+                      )
+                    }),
+                    0
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _c("div", [
+                _vm.propsData.status
+                  ? _c("small", { staticClass: "form-text text-success" }, [
+                      _vm._v(_vm._s(_vm.propsData.status))
+                    ])
+                  : _vm._e()
+              ])
+            ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
               _c(
@@ -2745,46 +2782,39 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            _vm._m(0),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "form-group" },
-              [
-                _c(
-                  "label",
-                  {
-                    staticClass: "text-primary",
-                    attrs: { for: "codeTextArea" }
-                  },
-                  [_vm._v("Код алгоритма")]
-                ),
-                _vm._v(" "),
-                _c("textarea", {
-                  staticClass: "text-monospace form-control",
-                  attrs: {
-                    id: "codeTextArea",
-                    name: "codeTextArea",
-                    rows: "15"
-                  }
-                }),
-                _vm._v(" "),
-                _vm._l(_vm.propsData.errors, function(error, index) {
+            _c("div", { staticClass: "form-group" }, [
+              _c(
+                "label",
+                { staticClass: "text-primary", attrs: { for: "groupSelect" } },
+                [_vm._v("Выбрать язык")]
+              ),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  staticClass: "form-control",
+                  attrs: { id: "languageSelect", name: "languageId" }
+                },
+                _vm._l(_vm.propsData.languages, function(language) {
                   return _c(
-                    "small",
-                    { key: index, staticClass: "form-text text-danger" },
-                    [_vm._v(_vm._s(error))]
+                    "option",
+                    { key: language.id, domProps: { value: language.id } },
+                    [
+                      _vm._v(
+                        "\n              " +
+                          _vm._s(language.name) +
+                          "\n            "
+                      )
+                    ]
                   )
                 }),
-                _vm._v(" "),
-                _vm.propsData.status
-                  ? _c("small", { staticClass: "form-text text-success" }, [
-                      _vm._v(_vm._s(_vm.propsData.status))
-                    ])
-                  : _vm._e()
-              ],
-              2
-            ),
+                0
+              )
+            ]),
+            _vm._v(" "),
+            _vm._m(0),
+            _vm._v(" "),
+            _vm._m(1),
             _vm._v(" "),
             _c(
               "button",
@@ -2817,6 +2847,23 @@ var staticRenderFns = [
           name: "nameAlgorithm",
           value: ""
         }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c(
+        "label",
+        { staticClass: "text-primary", attrs: { for: "codeTextArea" } },
+        [_vm._v("Код алгоритма")]
+      ),
+      _vm._v(" "),
+      _c("textarea", {
+        staticClass: "text-monospace form-control",
+        attrs: { id: "codeTextArea", name: "codeTextArea", rows: "15" }
       })
     ])
   }
@@ -15381,15 +15428,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!*********************************************************!*\
   !*** ./resources/js/components/index/CodeComponent.vue ***!
   \*********************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _CodeComponent_vue_vue_type_template_id_5be94378_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CodeComponent.vue?vue&type=template&id=5be94378&scoped=true& */ "./resources/js/components/index/CodeComponent.vue?vue&type=template&id=5be94378&scoped=true&");
 /* harmony import */ var _CodeComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CodeComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/index/CodeComponent.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _CodeComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _CodeComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -15419,7 +15465,7 @@ component.options.__file = "resources/js/components/index/CodeComponent.vue"
 /*!**********************************************************************************!*\
   !*** ./resources/js/components/index/CodeComponent.vue?vue&type=script&lang=js& ***!
   \**********************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

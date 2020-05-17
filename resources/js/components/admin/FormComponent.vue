@@ -18,12 +18,21 @@
           >
           
           <div
-            v-if="propsData.status"
             class="form-group"
           >
-            <small
-              class="form-text text-success"
-            >{{ propsData.status }}</small>
+            <div v-if="propsData.errors">
+              <small
+                v-for="(error, index) in propsData.errors"
+                :key="index"
+                class="form-text text-danger"
+              >{{ error }}</small>
+            </div>
+            <div>
+              <small
+                v-if="propsData.status"
+                class="form-text text-success"
+              >{{ propsData.status }}</small>
+            </div>
           </div>
 
           <div class="form-group">
@@ -43,6 +52,27 @@
                 :value="group.id"
               >
                 {{ group.name }}
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label
+              class="text-primary"
+              for="groupSelect"
+            >Выбрать язык</label>
+
+            <select
+              id="languageSelect"
+              class="form-control"
+              name="languageId"
+            >
+              <option
+                v-for="language in propsData.languages"
+                :key="language.id"
+                :value="language.id"
+              >
+                {{ language.name }}
               </option>
             </select>
           </div>
@@ -73,15 +103,6 @@
               name="codeTextArea"
               rows="15"
             />
-            <small
-              v-for="(error, index) in propsData.errors"
-              :key="index"
-              class="form-text text-danger"
-            >{{ error }}</small>
-            <small
-              v-if="propsData.status"
-              class="form-text text-success"
-            >{{ propsData.status }}</small>
           </div>
 
           <button
