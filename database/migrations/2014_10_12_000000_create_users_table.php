@@ -13,15 +13,23 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('group')) {
+            Schema::create('group', function (Blueprint $table) {
+                $table->increments('id');
+                $table->string('name');
+                $table->integer('count')->unsigned()->default(0);
+            });
+        }
+
+        if (!Schema::hasTable('algorithm')) {
+            Schema::create('algorithm', function (Blueprint $table) {
+                $table->id();
+                $table->string('name');
+                $table->text('code');
+                $table->integer('group_id')->unsigned();
+                $table->foreign('group_id')->references('id')->on('group');
+            });
+        }
     }
 
     /**
@@ -31,6 +39,12 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        // delete constraints
+        Schema::table('algorithm', function (Blueprint $table) {
+            $table->dropForeign('algorithm_group_id_foreign');
+        });
+
+        Schema::dropIfExists('group');
+        Schema::dropIfExists('algorithm');
     }
 }

@@ -28,7 +28,7 @@ class SuperController extends Controller
      * Контент отображаемого вида.
      * @var string
      */
-    protected $content = '';
+    protected $content = null;
 
     public function __construct()
     {
@@ -43,10 +43,9 @@ class SuperController extends Controller
         $this->vars = Arr::add($this->vars, 'title', $this->title);
 
         // передать в шаблон контентной части
-        if ($this->content) {
+        if ($this->content !== null) {
             $this->vars = Arr::add($this->vars, 'content', $this->content);
         }
-
         return view($this->layout)->with($this->vars);
     }
 }

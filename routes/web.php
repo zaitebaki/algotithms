@@ -14,3 +14,12 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::get('/', 'Start\IndexController@index')->name('startPage');
+
+Route::get('/admin-ft17', 'Admin\IndexController@index')->name('adminPage');
+Route::get('/add-group', 'Admin\GroupController@index')->name('groupPageIndex');
+Route::get('/add-language', 'Admin\LanguageController@index')->name('languagePageIndex');
+
+Route::post('/add-group-post', 'Admin\GroupController@addGroup')->name('addGroup');
+Route::post('/add-language-post', 'Admin\LanguageController@addLanguage')->name('addLanguage');
+
+Route::post('/add-algorithm', 'Admin\IndexController@addAlgorithm')->name('addAlgorithm');
