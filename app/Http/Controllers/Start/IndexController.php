@@ -39,6 +39,10 @@ class IndexController extends SuperController
             ];
         }
 
+        $this->propsData['addAlgorithmRoute'] = route('adminPage');
+        $this->propsData['addGroupRoute'] = route('groupPageIndex');
+        $this->propsData['addLanguageRoute'] = route('languagePageIndex');
+
         $this->content = view('welcome', ['propsData' => $this->propsData])->render();
         return $this->renderOutput();
     }
