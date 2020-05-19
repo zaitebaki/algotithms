@@ -165,6 +165,7 @@ export default {
   },
   computed: {},
   mounted() {
+    console.log("hello");
   },
 };
 </script>
